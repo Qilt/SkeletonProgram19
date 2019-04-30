@@ -44,7 +44,7 @@ Creates board wth dimensions 8x8
 
 PARAMETERS
 Board = 8x8 [row][column]
-
+BOARD_SIZE is already defined as 8.
 thisRow starts with 0 and increments to 8 - another for loop has started with thisColumn = 0 and increments to 8
 In the for loops, an if condition checks if the current row + the current column is a factor of 2 (even). 
 If it is, then set coordinates of that area into UNUSED (xxxx), else set as SPACE
