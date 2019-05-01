@@ -6,6 +6,13 @@
 # Version number: 0.1.3
 
 
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# Edited line 171
+# Edited line 328
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
 SPACE = '     '
 UNUSED = 'XXXXX'
 
@@ -163,7 +170,10 @@ def ValidJump(Board, PlayersPieces, Piece, NewRow, NewColumn):
       MiddlePieceColumn = (CurrentColumn + NewColumn) // 2
       MiddlePiece = Board[MiddlePieceRow][MiddlePieceColumn]
       MiddlePiecePlayer = MiddlePiece[0].lower()
-      if MiddlePiecePlayer != OppositePiecePlayer and MiddlePiecePlayer != ' ':
+      # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      if MiddlePiecePlayer == OppositePiecePlayer and MiddlePiecePlayer != ' ':  
+      # Changed '==' from '!=' so it continues when it is an enemy player.
+      # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         Valid = True       
   return Valid
 
@@ -317,6 +327,10 @@ def MakeMove(Board, PlayersPieces, OpponentsPieces, ListOfMoves, PieceIndex):
       MiddlePieceColumn = (CurrentColumn + NewColumn) // 2
       MiddlePiece = Board[MiddlePieceRow][MiddlePieceColumn]
       print('jumped over ', MiddlePiece)
+      # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      Board[MiddlePieceRow][MiddlePieceColumn] = SPACE  
+      # Added this line of code to replace middle piece with blank space after its been jumped over
+      # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   return Board, PlayersPieces, OpponentsPieces
 
 def SwapPlayer(NextPlayer):
